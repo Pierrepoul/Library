@@ -1,0 +1,78 @@
+<main class="main">
+  <div class="content">
+    <p-table [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10, 25, 50]" [value]="books" dataKey="id" editMode="row"
+      [tableStyle]="{ 'min-width': '80rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id" style="width:10%">ID<p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="title" style="width:20%">Title<p-sortIcon field="title"></p-sortIcon></th>
+          <th pSortableColumn="author" style="width:20%">Author <p-sortIcon field="author"></p-sortIcon></th>
+          <th pSortableColumn="grade" style="width:15%">Grade<p-sortIcon field="grade"></p-sortIcon></th>
+          <th pSortableColumn="last_update" style="width:15%">Last Update<p-sortIcon field="last_update"></p-sortIcon>
+          </th>
+          <th style="width:20%">
+            <p-button type="button" (click)="Click()" class="p-button-rounded p-button-text">Add</p-button>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="book">
+          <td>
+            {{book.id}}
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="book.title" required>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{book.title}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="book.author" required>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{book.author}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="book.grade" required.>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{book.grade}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            {{book.last_update}}
+          </td>
+          <td>
+            <div class="flex align-items-center justify-content-center gap-2">
+              <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow (click)="rowEdit(book)"
+                class="p-button-rounded p-button-text p-button-primary">Edit</button>
+              <button *ngIf="!editing" pButton pRipple type="button" (click)="deleteRow(book)"
+                class="p-button-rounded p-button-text p-button-danger">Delete</button>
+              <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow (click)="rowSave(book)"
+                class="p-button-rounded p-button-text p-button-success mr-2">Save</button>
+              <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow (click)="rowEditCancel(book, ri)"
+                class="p-button-rounded p-button-text p-button-danger">Stop</button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</main>
+
+
+
+<router-outlet></router-outlet>

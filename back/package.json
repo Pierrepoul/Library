@@ -1,0 +1,23 @@
+{
+   "name": "project",
+  "version": "0.0.0",
+  "scripts": {
+    "npm": "npm",
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "angularjs": "^0.0.1",
+    "body-parser": "^1.20.2",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^5.3.2",
+    "child_process": "^1.0.2",
+    "express": "^4.17.2",
+    "jquery": "^3.7.1",
+    "path": "^0.12.7",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "sqlite3": "^5.1.6"
+  },
+  "author": "Pierre Poulain",
+  "license": "ISC"
+}

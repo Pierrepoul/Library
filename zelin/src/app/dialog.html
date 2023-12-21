@@ -1,0 +1,20 @@
+<div mat-dialog-content>
+  <p>Ajouter un Livre</p>
+  <div>
+    <input matInput [(ngModel)]="data.title">
+    <mat-label> Titre</mat-label>
+  </div>
+  <div>
+    <input matInput [(ngModel)]="data.author">
+    <mat-label> Auteur</mat-label>
+  </div>
+  <div>
+    <input type="number" min="0" max="5" matInput [(ngModel)]="data.grade" step="1" placeholder="Une note de 0 à 5">
+    <mat-label> Note</mat-label>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="primary" type="button" [mat-dialog-close]="data"
+    [disabled]="!data.title || !data.grade || !data.grade" cdkFocusInitial>Ok</button>
+</div>
