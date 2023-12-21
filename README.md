@@ -10,7 +10,7 @@ You’re free to choose your stack :
 - Frontend : AngularJS
 - Backend : NodeJS, ExpressJS
 - API : REST
-- Database : SQLite database
+- Database : local SQLite database
 
 ## The application is a personal library
 
